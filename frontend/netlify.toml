@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# VITE_API_URL is baked into the build at build time (Vite env vars are
+# compile-time, not runtime). Set it in the Netlify dashboard under
+# Site configuration > Environment variables — do not commit the real
+# production API URL here. Example: https://networth-backend.onrender.com/api
+
+[[redirects]]
+  # React Router client-side routing: serve index.html for any path that
+  # isn't a real file, so deep links (e.g. /dashboard, /timeline) work.
+  from = "/*"
+  to = "/index.html"
+  status = 200
