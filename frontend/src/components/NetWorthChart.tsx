@@ -29,7 +29,7 @@ export function NetWorthChart({ data }: NetWorthChartProps) {
         <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
         <XAxis dataKey="date" tick={{ fontSize: 12 }} />
         <YAxis tickFormatter={(value: number) => formatINR(value)} tick={{ fontSize: 12 }} width={90} />
-        <Tooltip formatter={(value: number) => formatINR(value)} />
+        <Tooltip formatter={(value) => formatINR(Array.isArray(value) ? Number(value[0]) : Number(value ?? 0))} />
         <Line
           type="monotone"
           dataKey="net_worth"

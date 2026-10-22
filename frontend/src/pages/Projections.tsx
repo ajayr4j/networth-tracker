@@ -60,7 +60,9 @@ export function Projections() {
         ) : (
           <ProjectionForm
             settings={settings}
-            onSubmit={(data) => updateSettings.mutateAsync(data)}
+            onSubmit={async (data) => {
+              await updateSettings.mutateAsync(data);
+            }}
           />
         )}
 

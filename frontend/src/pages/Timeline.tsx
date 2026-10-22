@@ -59,7 +59,11 @@ export function Timeline() {
           </Link>
         </div>
 
-        <CheckInForm onSubmit={(data) => createCheckIn.mutateAsync(data)} />
+        <CheckInForm
+          onSubmit={async (data) => {
+            await createCheckIn.mutateAsync(data);
+          }}
+        />
 
         <div className="rounded-lg bg-white p-6 shadow">
           <h2 className="mb-4 text-lg font-semibold text-slate-900">Activity</h2>
